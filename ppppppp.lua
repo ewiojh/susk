@@ -1,0 +1,1 @@
+hum.WalkSpeed = 999  -- 超快
