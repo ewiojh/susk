@@ -448,7 +448,7 @@ RunService.Heartbeat:Connect(heartBeatLoop)
 local Window = WindUI:CreateWindow({
     Title = "<font color='#FFB6C1'>北</font><font color='#FFA0B5'>极</font><font color='#FF8AA9'>星</font>",
     IconTransparency = 1,
-    Author = "by北极星",
+    Author = "op北极星",
     Folder = "BEIJIXING",
     Size = UDim2.fromOffset(200, 395),
     Transparent = true,
@@ -719,7 +719,7 @@ do
                 })
             else
                 WindUI:Notify({
-                    Title = "欢迎使用北极星",
+                    Title = "欢迎使用op北极星",
                     Content = "本服务器为闪光",
                     Icon = "alert-circle",
                     Color = Red,
@@ -1859,7 +1859,6 @@ do
     })
 end
 
--- 添加按钮到音乐库标签页
 MusicTab:Button({
     Title = "网易云音乐",
     Callback = function()
@@ -2215,144 +2214,6 @@ do
     })
 end
 
-local AboutTab = Window:Tab({  
-    Title = "关于作者",  
-    Icon = "crown",  
-    Locked = false,
-})
-
-do
-    AboutTab:Paragraph({
-    Title = "欢迎使用北极星脚本",
-    Desc = "作者：北极星｜ 源码提供：梅西（凌乱）｜\n版本：v4.0.0\n\n一个功能强大的脚本",
-    ImageSize = 50,
-    Thumbnail = "https://raw.githubusercontent.com/xiaoxi9008/chesksks/refs/heads/main/1357873301.jpg",
-    ThumbnailSize = 170
-})
-
-AboutTab:Keybind({
-    Flag = "KeybindTest",
-    Title = "快捷键",
-    Desc = "打开UI的快捷键",
-    Value = "G",
-    Callback = function(v) 
-        Window:SetToggleKey(Enum.KeyCode[v]) 
-    end
-})
-
-AboutTab:Divider()
-
-AboutTab:Button({
-    Title = "显示欢迎通知",
-    Icon = "bell",
-    Callback = function()
-        WindUI:Notify({
-            Title = "欢迎!",
-            Content = "感谢使用北极星",
-            Icon = "heart",
-            Duration = 3
-        })
-    end
-})
-AboutTab:Paragraph({
-    Title = "此脚本为凌乱协助",
-    Desc = [[ ]],
-    Image = "eye",
-    ImageSize = 24,
-    Color = Color3.fromHex("#000000"),
-    BackgroundColor3 = Color3.fromHex("#000000"),
-    BackgroundTransparency = 0.2,
-    OutlineColor = Color3.fromHex("#000000"),
-    OutlineThickness = 1,
-    Padding = UDim.new(0, 1)
-})
-    AboutTab:Space({ Columns = 2 })
-    AboutTab:Button({
-        Title = "销毁UI",
-        Color = Red,
-        Justify = "Center",
-        Callback = function()
-            pcall(function()
-                if JumpConnection then
-                    JumpConnection:Disconnect()
-                end
-                if SpeedConnection then
-                    SpeedConnection:Disconnect()
-                end
-                if AimConnection then
-                    AimConnection:Disconnect()
-                end
-                CleanupDrawings()
-                if RainbowUIScreenGui then
-                    RainbowUIScreenGui:Destroy()
-                end
-                workspace.Gravity = originalGravity
-                if NightVisionEnabled then
-                    Lighting.Brightness = originalBrightness
-                    Lighting.Ambient = originalAmbient
-                end
-                if ESPEnabled then
-                    ToggleESP(false)
-                end
-                Window:Destroy()
-            end)
-        end
-    })
-    AboutTab:Space()
-    AboutTab:Button({
-        Title = "重置所有配置",
-        Color = Yellow,
-        Justify = "Center",
-        Callback = function()
-            pcall(function()
-                AimSettings = {
-                    Enabled = false,
-                    FOV = 100,
-                    Smoothness = 10,
-                    CrosshairDistance = 5,
-                    FOVColor = Color3.fromRGB(0, 255, 0),
-                    FriendCheck = true,
-                    WallCheck = true,
-                    TargetPlayer = nil,
-                    TargetAll = true,
-                    FOVRainbowEnabled = true,
-                    FOVRainbowSpeed = 8,
-                    FOVEnabled = true
-                }
-                ESPNameColor = Color3.fromRGB(0, 255, 127)
-                ESPBodyColor = Color3.fromRGB(0, 255, 127)
-                ESPNameSize = 14
-                ESPRainbowEnabled = false
-                ESPRainbowSpeed = 5
-                CurrentESPHue = 0
-                RainbowUIEnabled = false
-                BackstabCheckEnabled = false
-                DeathCheckEnabled = false
-                CurrentTarget = nil
-                ESPTeamCheck = false
-                if RainbowUIScreenGui then
-                    RainbowUIScreenGui:Destroy()
-                    RainbowUIScreenGui = nil
-                end
-                workspace.Gravity = originalGravity
-                if NightVisionEnabled then
-                    Lighting.Brightness = originalBrightness
-                    Lighting.Ambient = originalAmbient
-                    NightVisionEnabled = false
-                end
-                if ESPEnabled then
-                    ToggleESP(false)
-                end
-                WindUI:Notify({
-                    Title = "重置",
-                    Content = "所有设置已重置",
-                    Icon = "refresh-cw",
-                })
-            end)
-        end
-    })
-end
-
 game:BindToClose(function()
     pcall(function()
         CleanupDrawings()
@@ -2406,7 +2267,7 @@ end
 
 WindUI:Notify({
     Title = "pvp",
-    Content = "北极星Hub!",
+    Content = "op北极星Hub!",
     Icon = "check-circle",
     Duration = 5,
 })
